@@ -238,10 +238,14 @@ def autocorr(sym, max_shift=60):
 
 
 def est_period(ac):
-    base, mx = np.median(ac), max(ac)
-    thr = base + 0.5 * (mx - base)
-    for d, v in enumerate(ac, 1):
-        if v >= thr:
+    """Okres = najmniejsze d, dla ktorego srednia autokorelacji w punktach d, 2d, 3d...
+    jest bliska najwyzszej (odporne na szum przy krotkich tekstach)."""
+    maxd = len(ac) // 3  # co najmniej 3 wielokrotnosci do usrednienia
+    score = {d: float(np.mean(ac[d - 1::d])) for d in range(1, maxd + 1)}
+    m = max(score.values())
+    base = float(np.median(ac))
+    for d in range(1, maxd + 1):
+        if score[d] - base >= 0.85 * (m - base):
             return d
     return None
 
@@ -500,6 +504,7 @@ def task1(R, pt, corp, rng):
     rows.append(("Playfair", f"{pf1} + {pf2}", "wynik nie jest (w praktyce) zadnym pojedynczym Playfairem; wymaga obu kluczy",
                  "n/d", f"IoC={ioc(list(p2)):.4f}, brak AA w digrafach: {all(p2[i] != p2[i + 1] for i in range(0, len(p2) - 1, 2))}"))
     t1, t2 = [3, 0, 4, 1, 2], [5, 2, 0, 6, 1, 3, 4]
+    s = s[: len(s) // 35 * 35]  # wielokrotnosc 5 i 7 -> brak dopelnien 'X'
     tt = transposition(transposition(s, t1), t2)
     rows.append(("Przestawieniowy", f"perm1={t1}, perm2={t2}", "dalej permutacja pozycji -> histogram i IoC bez zmian (podwojna transpozycja jest silniejsza)",
                  sorted(Counter(tt).values()) == sorted(Counter(s).values()), f"IoC={ioc(list(tt)):.4f}"))
@@ -672,7 +677,7 @@ def task_break(R, corp, plain_lang, pt, rng):
     for name, sym, _, _ in ciph:
         rows.append((name, len(set(sym)), f"{entropy(sym):.3f}", f"{ioc(sym) * 26:.3f}"))
     R.table("2_9_wskazowki", ["Szyfr", "Symbole", "H", "IoC*26"], rows)
-    R.p("IoC*26 ~ 1.6-1.8 (wartosc jak w jezyku) -> szyfr monoalfabetyczny/przestawieniowy (rozklad liter bez zmian); "
+    R.p("IoC*26 ~ 1.5-1.8 (wartosc jak w jezyku) -> szyfr monoalfabetyczny/przestawieniowy (rozklad liter bez zmian); "
         "IoC*26 -> 1.0 -> polialfabetyczny z dlugim kluczem lub macierzowy; 6 symboli -> ADFGVX; alfabet 100 symboli -> homofony; "
         "brak dwoch jednakowych liter obok siebie w parach -> Playfair.")
 

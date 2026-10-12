@@ -41,7 +41,7 @@ Ziarno generatora: 42. Tekst jawny: polski, 566 znakow.
 | Vigenere | k1=UDA, k2=XIHHE | rownowazny jednemu Vigenere o kluczu RLHBHXCKHYAIBKE (L=NWW=15) | True | oszacowana dlugosc klucza: 15 |
 | Hill 2x2 | M1=[[17, 2], [18, 13]], M2=[[22, 17], [13, 7]] | rownowazny jednemu Hillowi z macierza M2*M1 mod 26 | True | grupa -> brak wzrostu przestrzeni kluczy ponad |GL2(Z26)| |
 | Playfair | MONARCHY + KRYPTOGRAFIA | wynik nie jest (w praktyce) zadnym pojedynczym Playfairem; wymaga obu kluczy | n/d | IoC=0.0443, brak AA w digrafach: True |
-| Przestawieniowy | perm1=[3, 0, 4, 1, 2], perm2=[5, 2, 0, 6, 1, 3, 4] | dalej permutacja pozycji -> histogram i IoC bez zmian (podwojna transpozycja jest silniejsza) | False | IoC=0.0564 |
+| Przestawieniowy | perm1=[3, 0, 4, 1, 2], perm2=[5, 2, 0, 6, 1, 3, 4] | dalej permutacja pozycji -> histogram i IoC bez zmian (podwojna transpozycja jest silniejsza) | True | IoC=0.0580 |
 
 Wniosek: w szyfrach monoalfabetycznych i macierzowych (Cezar, ROT13, Hill) skladanie szyfrowan daje znow ten sam szyfr (struktura grupy) - bezpieczenstwo nie rosnie. W polialfabetycznym (Vigenere) rosnie okres klucza (NWW), ale szyfr pozostaje okresowy. Przestawieniowe pozostaja przestawieniowymi (rozklad liter bez zmian), a silniejsze sa dopiero kombinacje roznych klas (podstawienie + przestawienie = szyfr produktowy, np. ADFGVX).
 
@@ -184,12 +184,12 @@ Tekst jawny: jezyk polski, 566 znakow, poczatek: KRYPTOGRAFIATOSZTUKAUKRYWANIATR
 |---|---|---|---|---|---|
 | Vigenere | 3 | QMO | 3 | 0.0759 | 0.0407 |
 | XOR | 3 | QMO | 3 | 0.0759 | 0.0325 |
-| Vigenere | 5 | OJSNJ | 5 | 0.0665 | 0.0422 |
-| XOR | 5 | OJSNJ | 5 | 0.0665 | 0.0356 |
-| Vigenere | 8 | STBTXDYG | 1 | 0.0768 | 0.0385 |
+| Vigenere | 5 | OJSNJ | 20 | 0.0665 | 0.0422 |
+| XOR | 5 | OJSNJ | 20 | 0.0665 | 0.0356 |
+| Vigenere | 8 | STBTXDYG | 16 | 0.0768 | 0.0385 |
 | XOR | 8 | STBTXDYG | 16 | 0.0768 | 0.0331 |
-| Vigenere | 12 | UGIVCFHFRCFA | 3 | 0.0632 | 0.0387 |
-| XOR | 12 | UGIVCFHFRCFA | 24 | 0.0593 | 0.0307 |
+| Vigenere | 12 | UGIVCFHFRCFA | 12 | 0.0632 | 0.0387 |
+| XOR | 12 | UGIVCFHFRCFA | 12 | 0.0593 | 0.0307 |
 
 Piki autokorelacji wystepuja dla przesuniec rownych wielokrotnosciom dlugosci klucza - tak odczytuje sie dlugosc hasla.
 
@@ -228,7 +228,7 @@ Piki autokorelacji wystepuja dla przesuniec rownych wielokrotnosciom dlugosci kl
 | Homofony (cyfry) | 10 | 3.314 | 2.609 |
 | XOR L=8 | 32 | 4.855 | 0.933 |
 
-IoC*26 ~ 1.6-1.8 (wartosc jak w jezyku) -> szyfr monoalfabetyczny/przestawieniowy (rozklad liter bez zmian); IoC*26 -> 1.0 -> polialfabetyczny z dlugim kluczem lub macierzowy; 6 symboli -> ADFGVX; alfabet 100 symboli -> homofony; brak dwoch jednakowych liter obok siebie w parach -> Playfair.
+IoC*26 ~ 1.5-1.8 (wartosc jak w jezyku) -> szyfr monoalfabetyczny/przestawieniowy (rozklad liter bez zmian); IoC*26 -> 1.0 -> polialfabetyczny z dlugim kluczem lub macierzowy; 6 symboli -> ADFGVX; alfabet 100 symboli -> homofony; brak dwoch jednakowych liter obok siebie w parach -> Playfair.
 
 
 ### Lamanie Cezara (2.10 - klucz z analizy czestosci)

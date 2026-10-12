@@ -4,4 +4,4 @@ ROT13,2x ROT13,ROT13(ROT13(x)) == x,True,"3x ROT13 = ROT13, nx: parzyste n -> te
 Vigenere,"k1=UDA, k2=XIHHE",rownowazny jednemu Vigenere o kluczu RLHBHXCKHYAIBKE (L=NWW=15),True,oszacowana dlugosc klucza: 15
 Hill 2x2,"M1=[[17, 2], [18, 13]], M2=[[22, 17], [13, 7]]",rownowazny jednemu Hillowi z macierza M2*M1 mod 26,True,grupa -> brak wzrostu przestrzeni kluczy ponad |GL2(Z26)|
 Playfair,MONARCHY + KRYPTOGRAFIA,wynik nie jest (w praktyce) zadnym pojedynczym Playfairem; wymaga obu kluczy,n/d,"IoC=0.0443, brak AA w digrafach: True"
-Przestawieniowy,"perm1=[3, 0, 4, 1, 2], perm2=[5, 2, 0, 6, 1, 3, 4]",dalej permutacja pozycji -> histogram i IoC bez zmian (podwojna transpozycja jest silniejsza),False,IoC=0.0564
+Przestawieniowy,"perm1=[3, 0, 4, 1, 2], perm2=[5, 2, 0, 6, 1, 3, 4]",dalej permutacja pozycji -> histogram i IoC bez zmian (podwojna transpozycja jest silniejsza),True,IoC=0.0580
