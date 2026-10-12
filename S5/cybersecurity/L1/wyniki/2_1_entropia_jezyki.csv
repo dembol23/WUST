@@ -1,0 +1,7 @@
+Jezyk,Dlugosc,H [bit/znak],IoC*26,Nadmiarowosc (log2 26 - H)
+angielski (en),496,4.1059,1.8339,0.5945
+polski (pl),566,4.2392,1.5046,0.4612
+niemiecki (de),654,4.0333,2.0502,0.6672
+francuski (fr),634,3.9376,2.2048,0.7629
+wloski (it),587,3.9322,1.9805,0.7682
+hiszpanski (es),605,3.9604,2.0332,0.7400

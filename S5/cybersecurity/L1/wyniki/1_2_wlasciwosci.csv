@@ -1,0 +1,11 @@
+Algorytm,Klucz,Przestrzen kluczy,Klucze slabe / uwagi,Metody lamania
+Cezar,klucz k in 0..25,26 (2^4.7),k=0 (tozsamosc); 25 sensownych kluczy,przeszukanie wszystkich kluczy; analiza czestosci
+ROT13,brak klucza (k=13),1,caly szyfr jest 'slaby'; inwolucja: ROT13(ROT13(x))=x,wystarczy zastosowac ROT13 ponownie
+Vigenere L=5,slowo dlugosci L,1.188e+07 (2^23.5),klucz z jednej litery = Cezar; klucz 'A..A' = tozsamosc; klucz okresowy ('ABAB'='AB'),Kasiski / indeks koincydencji (Friedman) + analiza czestosci kolumn
+Vigenere L=12,slowo dlugosci L,9.543e+16 (2^56.4),j.w.,j.w. (potrzeba dluzszego tekstu)
+Playfair,kwadrat 5x5 (permutacja 25 liter),1.551e+25 (2^83.7),klucze rownowazne (przesuniecia cykliczne wierszy/kolumn kwadratu); brak digrafow typu AA w szyfrogramie,"analiza czestosci digrafow, hill-climbing / simulated annealing, atak ze znanym tekstem"
+Hill 2x2,macierz odwracalna mod 26,157248 (2^17.3),macierze o det niewzglednie pierwszym z 26 odpadaja; M=I tozsamosc,"atak ze znanym tekstem (algebra liniowa), analiza digrafow"
+Hill 3x3,macierz odwracalna mod 26,1.634e+12 (2^40.6),j.w.,znany tekst: 3 bloki -> uklad rownan
+Przestawieniowy L=8,permutacja kolumn,40320 (2^15.3),permutacja tozsamosciowa; L>=dlugosc tekstu,"anagramowanie, analiza digramow"
+Podst. monoalfabet.,permutacja 26 liter,4.033e+26 (2^88.4),litery odwzorowane na siebie,analiza czestosci
+ADFGVX,kwadrat 6x6 + slowo L=7,1.875e+45 (2^150.4),-,odwrocenie transpozycji + analiza czestosci (atak Painvina)

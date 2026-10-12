@@ -1,0 +1,9 @@
+Algorytm,Prawdziwa dl. klucza,Klucz,Odczytany pierwszy pik (przesuniecie),Max,Mediana
+Vigenere,3,QMO,3,0.0759,0.0407
+XOR,3,QMO,3,0.0759,0.0325
+Vigenere,5,OJSNJ,5,0.0665,0.0422
+XOR,5,OJSNJ,5,0.0665,0.0356
+Vigenere,8,STBTXDYG,1,0.0768,0.0385
+XOR,8,STBTXDYG,16,0.0768,0.0331
+Vigenere,12,UGIVCFHFRCFA,3,0.0632,0.0387
+XOR,12,UGIVCFHFRCFA,24,0.0593,0.0307
