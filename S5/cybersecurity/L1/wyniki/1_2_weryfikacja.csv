@@ -1,8 +1,8 @@
 Wlasciwosc,Potwierdzona?
 Cezar k=0 jest tozsamoscia,TAK
-ROT13 jest inwolucja,TAK
+ROT13 jest inwolucja (szyfrowanie == deszyfrowanie),TAK
 Vigenere klucz 'AAAAA' jest tozsamoscia,TAK
 Vigenere klucz 'DDDD' == Cezar k=3,TAK
-Vigenere 'ABAB' == 'AB',TAK
+Vigenere klucz okresowy 'ABAB' == 'AB',TAK
 Playfair: przesuniecie cykliczne kolumn kwadratu daje IDENTYCZNY szyfrogram (klucze rownowazne),TAK
 Playfair: w szyfrogramie nigdy nie wystepuje digraf z dwiema identycznymi literami,TAK
