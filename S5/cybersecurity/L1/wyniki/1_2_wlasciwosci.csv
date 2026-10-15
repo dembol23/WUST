@@ -1,0 +1,11 @@
+Algorytm,Klucz,Przestrzen kluczy,Klucze slabe / uwagi,Metody lamania
+Cezar,klucz k in 0..25,26 (2^4.7),k=0 (tozsamosc); 25 nietrywialnych kluczy,przeszukanie wyczerpujace (brute-force); analiza czestosci
+ROT13,brak klucza (stale k=13),1,caly szyfr jest kluczem slabym (inwolucja: ROT13(ROT13(x))=x),ponowne zastosowanie ROT13
+Vigenere L=5,slowo dlugosci L,1.188e+07 (2^23.5),klucz z jednej powtorzonej litery = Cezar; 'A..A' = tozsamosc; klucz okresowy ('ABAB'=='AB'),metoda Kasiskiego / indeks koincydencji (Friedman) + analiza czestosci kolumn
+Vigenere L=12,slowo dlugosci L,9.543e+16 (2^56.4),j.w.,j.w. (wymaga proporcjonalnie dluzszego szyfrogramu)
+Playfair,"kwadrat 5x5 (permutacja 25 liter, I=J)",1.551e+25 (2^83.7),klucze rownowazne (cykliczne przesuniecia wierszy/kolumn kwadratu daja ten sam szyfrogram); brak podwojnych liter w digrafach,"analiza czestosci digrafow, hill-climbing / symulowane wyzarzanie, atak ze znanym tekstem jawnym"
+Hill 2x2,macierz odwracalna mod 26,157248 (2^17.3),"macierze nieodwracalne (gcd(det, 26) != 1); macierz jednostkowa M=I; macierze inwolutywne (M^2 = I mod 26)","atak ze znanym tekstem jawnym (algebra liniowa mod 26), analiza digrafow"
+Hill 3x3,macierz odwracalna mod 26,1.634e+12 (2^40.6),j.w.,znany tekst jawny: 3 liniowo niezalezne bloki -> uklad rownan mod 26
+Przestawieniowy L=8,permutacja kolumn,40320 (2^15.3),"permutacja tozsamosciowa [0,1,..,L-1]; L >= dlugosc tekstu","anagramowanie kolumn, dopasowywanie czestosci bigramow na stykach kolumn"
+Podst. monoalfabet.,permutacja 26 liter,4.033e+26 (2^88.4),permutacja tozsamosciowa lub z duza liczba punktow stalych,"analiza czestosci pojedynczych liter, bigramow i trigramow"
+ADFGVX,kwadrat 6x6 + permutacja L=7,1.875e+45 (2^150.4),permutacja tozsamosciowa w etapie transpozycji (redukcja do szyfru podstawieniowego),odwrocenie transpozycji kolumnowej + analiza czestosci par (historyczny atak Painvina)
